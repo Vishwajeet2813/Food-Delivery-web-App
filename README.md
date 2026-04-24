@@ -1,118 +1,238 @@
-# Food Delivery Web App (Full Stack + DevOps)
-Overview - This is a full-stack food delivery application built using modern technologies and deployed with DevOps best practices.
+#  Food Delivery Web App (Full Stack + DevOps)
 
-The system includes:
+##  Overview
 
-User Frontend (React)
-Admin Panel (React)
-Backend API (Spring Boot)
-Database (MongoDB Atlas)
-Image Storage (AWS S3)
-Deployment (Docker + AWS EC2 + NGINX)
-CI/CD (GitHub Actions)
+This project is a **production-ready full-stack food delivery application** built using modern technologies and deployed with DevOps best practices.
 
-# Architecture
+It demonstrates:
+
+* Scalable backend APIs
+* Responsive frontend UI
+* Containerized deployment
+* CI/CD automation
+* Monitoring & observability
+
+---
+
+##  Architecture
+
+```
 User
- ↓
+  ↓
 NGINX (Reverse Proxy)
- ↓        ↓
+  ↓        ↓
 Frontend   Backend (/api)
- ↓
+  ↓
 MongoDB Atlas
- ↓
+  ↓
 AWS S3 (Images)
+```
 
-# Tech Stack
-🔹 Frontend
-React.js
-Axios
-CSS
-🔹 Backend
-Spring Boot
-Spring Security (JWT)
-REST APIs
-🔹 Database
-MongoDB Atlas (Cloud)
-🔹 DevOps
-Docker & Docker Compose
-AWS EC2
-NGINX Reverse Proxy
-GitHub Actions (CI/CD)
-🔹 Cloud Services
-AWS S3 (Image Storage)
+---
 
-# Project Structure
+##  Tech Stack
+
+###  Frontend
+
+* React.js
+* Axios
+* CSS
+
+###  Backend
+
+* Spring Boot
+* Spring Security (JWT Authentication)
+* REST APIs
+
+###  Database
+
+* MongoDB Atlas (Cloud Database)
+
+###  DevOps & Deployment
+
+* Docker & Docker Compose
+* AWS EC2
+* NGINX (Reverse Proxy)
+* GitHub Actions (CI/CD Pipeline)
+
+### Monitoring & Observability
+
+* Prometheus (Metrics Collection)
+* Grafana (Visualization Dashboard)
+
+###  Cloud Services
+
+* AWS S3 (Image Storage)
+
+---
+
+##  Project Structure
+
+```
 Food-Delivery-React-Java-Full-Stack/
 │
-├── foodies/          # User frontend
-├── adminpanel/       # Admin frontend
-├── foodiesapi/       # Backend (Spring Boot)
+├── foodies/              # User Frontend
+├── adminpanel/           # Admin Frontend
+├── foodiesapi/           # Backend (Spring Boot)
 ├── docker-compose.yml
 ├── nginx.conf
-└── .github/workflows/deploy.yml
+├── prometheus.yml
+└── .github/workflows/    # CI/CD Pipeline
+```
 
-# Features
-User Features
-Register / Login
-Browse food items
-Add to cart
-Place orders
-View order history
-Admin Features
-Add food items
-Manage orders
-Update order status
+---
 
-# Docker Setup
-Build & Run
+##  Features
+
+###  User
+
+* Register / Login
+* Browse food items
+* Add to cart
+* Place orders
+* View order history
+
+###  Admin
+
+* Add food items
+* Manage orders
+* Update order status
+
+---
+
+##  Docker Setup
+
+###  Build & Run
+
+```bash
 docker-compose up --build -d
-Stop Containers
+```
+
+###  Stop
+
+```bash
 docker-compose down
+```
 
-# Deployment (AWS EC2)
-Hosted on AWS EC2 instance
-Reverse proxy using NGINX
-Frontend & Backend deployed using Docker
-🔗 Access Application
+---
+
+##  Deployment (AWS EC2)
+
+* Application hosted on AWS EC2
+* Services run in Docker containers
+* NGINX used as reverse proxy
+
+###  Access
+
+```
 http://54.210.47.81
+```
 
-# CI/CD Pipeline (GitHub Actions)
+---
 
-The pipeline automatically:
+##  CI/CD Pipeline (GitHub Actions)
 
-Triggers on push to main
-SSH into EC2
-Pull latest code
-Rebuild Docker containers
-Deploy updated application
+Pipeline automatically:
 
-# Environment Variables
-Create a .env file:
+* Triggers on push to `main`
+* SSH into EC2 instance
+* Pull latest code
+* Rebuild Docker containers
+* Deploy updated application
 
-JWT_SECRET_KEY=your_secret
+---
+
+##  Monitoring Setup
+
+###  Prometheus
+
+* Scrapes metrics from:
+
+```
+/actuator/prometheus
+```
+
+###  Grafana
+
+* Visualizes:
+
+  * JVM memory usage
+  * CPU usage
+  * API request metrics
+  * Application performance
+
+---
+
+##  Environment Variables
+
+Create a `.env` file:
+
+```env
+JWT_SECRET_KEY=your_secret_key
 spring.data.mongodb.uri=your_mongodb_uri
-AWS_ACCESS_KEY=your_key
-AWS_SECRET_KEY=your_secret
+AWS_ACCESS_KEY=your_access_key
+AWS_SECRET_KEY=your_secret_key
+```
 
-# Security
-JWT-based authentication
-CORS configuration
-Backend secured behind NGINX
-Sensitive data managed via .env
- Useful Commands
- View logs - docker-compose logs -f
-Check running containers - docker ps
-Restart services - docker-compose restart
+---
 
-# What I Learned
-Full-stack development (React + Spring Boot)
-Docker containerization
-CI/CD pipeline using GitHub Actions
-Cloud deployment on AWS EC2
-Reverse proxy using NGINX
-Secure API design using JWT
+##  Security
+
+* JWT-based authentication
+* CORS configuration
+* Backend secured via Spring Security
+* Sensitive data stored in `.env`
+
+---
+
+##  Useful Commands
+
+###  View Logs
+
+```bash
+docker-compose logs -f
+```
+
+###  Check Containers
+
+```bash
+docker ps
+```
+
+###  Restart Services
+
+```bash
+docker-compose restart
+```
+
+---
+
+##  Future Improvements
+
+* Add HTTPS (SSL with domain)
+* Implement zero-downtime deployment
+* Add alerting system (Grafana alerts)
+* Add container monitoring (cAdvisor)
+* Integrate logging (ELK / Loki)
+* Kubernetes deployment
+
+---
+
+##  What I Learned
+
+* Full-stack development (React + Spring Boot)
+* Docker containerization
+* CI/CD pipeline using GitHub Actions
+* Cloud deployment on AWS EC2
+* Reverse proxy using NGINX
+* Monitoring with Prometheus & Grafana
+* Secure API design using JWT
+
+---
 
 
-# Conclusion
+##  Conclusion
 
-This project demonstrates a production-ready full-stack deployment pipeline, combining development and DevOps practices in a real-world scenario.
+This project demonstrates a **complete end-to-end DevOps pipeline**, combining application development, deployment, automation, and monitoring in a real-world scenario.
+
+---
