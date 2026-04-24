@@ -70,7 +70,7 @@ public class SecurityConfig {
             config.setAllowedOrigins(List.of(
                 "http://localhost:3000",
                 "http://localhost:3001",
-                 'http://54.210.47.81:3000' 
+                "http://54.210.47.81:3000" 
             ));
 
             config.setAllowedMethods(List.of(
